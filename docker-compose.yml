@@ -21,8 +21,23 @@ services:
       - ollama-models:/root/.ollama
     ports:
       - "11434:11434"
-    # Let the image run its default entrypoint; we just tell it to 'serve'
-    command: ["serve"]
+    # Start ollama serve in background, wait for it to be ready, pull the model, then keep serve running
+    command: >
+      bash -c "
+      ollama serve &
+      OLLAMA_PID=$!
+      echo 'Waiting for Ollama to be ready...'
+      for i in {1..30}; do
+        if curl -s http://localhost:11434/api/tags > /dev/null 2>&1; then
+          echo 'Ollama is ready!'
+          break
+        fi
+        sleep 1
+      done
+      echo 'Pulling llama3.2:1b model...'
+      ollama pull llama3.2:1b || echo 'Model pull failed or already exists'
+      wait $OLLAMA_PID
+      "
     networks:
       - training-network
 
