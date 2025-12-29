@@ -23,7 +23,8 @@ echo 'Waiting for Ollama container to start...'
 ATTEMPTS=0
 CONTAINER_NAME=''
 while [ $ATTEMPTS -lt $MAX_ATTEMPTS ]; do
-  CONTAINER_NAME=$(docker ps --filter 'name=ollama' --format '{{.Names}}' | head -1)
+  # Find ollama container but exclude model-puller containers
+  CONTAINER_NAME=$(docker ps --filter 'name=ollama' --format '{{.Names}}' | grep -v 'model-puller' | head -1)
   if [ -n "$CONTAINER_NAME" ]; then
     echo "Found container: $CONTAINER_NAME"
     break
@@ -39,6 +40,7 @@ fi
 echo 'Waiting for Ollama API to be ready...'
 ATTEMPTS=0
 while [ $ATTEMPTS -lt $MAX_ATTEMPTS ]; do
+  echo "Checking Ollama API readiness (attempt $((ATTEMPTS + 1))/$MAX_ATTEMPTS)..."
   if docker exec "$CONTAINER_NAME" sh -c 'curl -s http://localhost:11434/api/tags > /dev/null 2>&1' 2>/dev/null; then
     echo 'Ollama API is ready!'
     break
