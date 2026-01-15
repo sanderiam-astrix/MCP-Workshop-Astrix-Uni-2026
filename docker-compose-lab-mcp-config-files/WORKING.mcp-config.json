@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "postgres": {
+      "command": "pg-mcp-server",
+      "args": [],
+      "env": {
+        "DATABASE_URL": "postgresql://demouser:demopass123@postgres:5432/demo"
+      }
+    }
+  },
+  "ollama": {
+    "host": "http://ollama:11434",
+    "model": "llama3.2:1b"
+  }
+}
