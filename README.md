@@ -2,6 +2,14 @@
 
 This repository contains the lab materials for the Astrix MCP Workshop. Choose your lab environment based on your setup preferences.
 
+## Useful Primary Sources
+These are all sources of documentation that go deeper into many aspects of things we will cover briefly in the workshop. They are gathered here for convenience, but don't represent the full scope of all materials that went into creating the labs and other workshop materials.
+- [Introduction to Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro) - A foundational guide for newcomers, covering core concepts, installation prerequisites, and the initial steps to connect your first server to a client like Claude Desktop.
+- [Manage MCP Servers in VS Code](https://code.visualstudio.com/docs/copilot/customization/mcp-servers#_manage-installed-mcp-servers) - A practical manual for VS Code users, detailing how to configure, manage, and troubleshoot MCP servers specifically within the GitHub Copilot environment for streamlined coding workflows.
+- [Official MCP Servers Repository](https://github.com/modelcontextprotocol/servers) - The official repository containing reference implementations of various MCP servers, serving as both a library of ready-to-use tools and a gold-standard code reference for building your own.
+- [Building a Custom MCP Server](https://modelcontextprotocol.io/docs/develop/build-server) - A technical tutorial for developers that walks through the lifecycle of creating a custom MCP server, including project initialization, defining tools, resources, and handling client requests.
+- [How to Connect Data to AI Apps](https://www.builder.io/blog/mcp-server) - A narrative-driven tutorial that demonstrates practical application, guiding you through building a custom server to bridge proprietary data sources with AI applications for real-world use cases.
+
 ## Lab Choices
 
 You have two main options for participating in the labs:
