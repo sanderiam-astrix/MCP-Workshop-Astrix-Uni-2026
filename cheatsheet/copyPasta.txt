@@ -11,3 +11,6 @@ cp mcp-config.json ORIG.mcp-config.json
 cp ../MCP-Workshop-Astrix-Academy-2026/docker-compose-lab-mcp-config-files/WORKING.mcp-config.json mcp-config.json
 npm install
 npm start
+you're going to use the "query" tool to get info about movies from the movies table in the database. when you call the "query" tool be sure you lable the SQL as "sql" in the arguments so that it works correctly
+cp ../MCP-Workshop-Astrix-Academy-2026/cheatsheet/BROKEN.mcp-config.json ./mcp-config.json
+cp ../MCP-Workshop-Astrix-Academy-2026/docker-compose-lab-mcp-config-files/SECRETWRAPPED.mcp-config.json mcp-config.json
